@@ -5,7 +5,7 @@ import { v4  } from 'uuid';
 
 
 const EditWrap = styled.div`
-  padding:20px 0px;
+  padding:40px 0px;
   width: 100%;
   text-align: center;
   position: relative;

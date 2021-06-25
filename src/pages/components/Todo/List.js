@@ -9,26 +9,17 @@ const ListWrap = styled.div`
   overflow-x:hidden;
   overflow-y: auto;
 `
-const Title = styled.div`
-  color: #ddd;
-  font-size: large;
-  font-weight: bold;
-  margin: 0 1em;
-`
 
-const List = ({ Listdata}) => {
+const List = ({ Listdata, delWork}) => {
   return (
-    <>
-    <Title>Work List :</Title>
     <ListWrap>
       {     
       Listdata.map(item => {
         const { id, note, } =item
-        return <Item key={ id } id={ id }note ={note}/>
+        return <Item key={ id } id={ id } note ={note} delWork={delWork}/>
       })}
       
     </ListWrap>
-    </>
   );
 };
 

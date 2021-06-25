@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */  
 import styled from '@emotion/styled'
 
+
 const ClockItem =styled.div`
   
-  & label{
+  & li{
     border-bottom: 1px solid #fff;
     width: 100%;
     
@@ -14,17 +15,19 @@ const ClockItem =styled.div`
       background-color: #333;
       color: #ddd;
     }
-    & input{
-      display: none;
-    }
+    
+    
   }
 `
 
 
-const ClockList = (note) => {
+const ClockList = ({note,setTitle}) => {
+  const choose = ()=>{
+    setTitle(note)
+  }
   return (
     <ClockItem>
-      <label ><input type="radio" name='list' />{note.note}</label> 
+      <li onClick={choose}>{note}</li> 
       
     </ClockItem>
   );

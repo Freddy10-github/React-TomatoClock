@@ -38,13 +38,21 @@ const ButtomBlock=styled.div`
 `
 
 
-const Item = ({ id,note}) => {
+const Item = ({ id,note,delWork}) => {
+  const noteDone=()=>{
+    delWork(function(prev){
+      return prev.filter(item=>item.id !== id)      
+    })
+  }
+  const noteDel=()=>{
+    console.log(456);
+  }
   return (
     <ItemWrap>
       <p>{note}</p>
       <ButtomBlock>
-        <button id="OK">完成</button>
-        <button id="Del">刪除</button>
+        <button id="OK" onClick={noteDone}>完成</button>
+        <button id="Del" onClick={noteDel}>刪除</button>
       </ButtomBlock>
     </ItemWrap>
   );
