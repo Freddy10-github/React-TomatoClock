@@ -10,6 +10,7 @@ const EditWrap = styled.div`
   text-align: center;
   position: relative;
   & input{
+    width: 80%;
     font-size: x-large;
     border-radius: 50px;
     box-sizing: border-box;
@@ -32,7 +33,7 @@ const EditWrap = styled.div`
   
 `
 
-const Edit = ({ setWork }) => {
+const Edit = ({ setWork, setEven }) => {
   const [note,setNote] = useState("")
   const noteChange = (e) =>{
     setNote(e.target.value)

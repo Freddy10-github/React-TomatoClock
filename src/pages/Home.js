@@ -3,11 +3,13 @@ import Clock from "./components/Clock";
 import { useState } from 'react';
 
 function Home() {
-  const [even, setEven] = useState([])  
+  const [currentTask, setCurrentTask] = useState('選擇任務')  
+  const [comment, setComment] = useState([])  
+  console.log(comment);
   return (
   <div className="container">
-    <Todo setEven={setEven}/>
-    <Clock even = {even}/>
+    <Todo setCurrentTask={setCurrentTask} setComment={setComment}/>
+    <Clock currentTask = {currentTask} comment={comment}/>
   </div>
 );
 }

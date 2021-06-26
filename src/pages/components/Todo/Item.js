@@ -14,7 +14,7 @@ const ItemWrap = styled.div`
   }
 `
 const ButtomBlock=styled.div`
-  width: 20%;
+  width: 30%;
   text-align: right;
   
   & button{
@@ -38,21 +38,23 @@ const ButtomBlock=styled.div`
 `
 
 
-const Item = ({ id,note,delWork}) => {
+const Item = ({ id,note,delWork,setCurrentTask}) => {
   const noteDone=()=>{
     delWork(function(prev){
       return prev.filter(item=>item.id !== id)      
     })
   }
-  const noteDel=()=>{
-    console.log(456);
+  const noteChoose=()=>{
+    console.log(note);
+    setCurrentTask(note)
   }
   return (
     <ItemWrap>
       <p>{note}</p>
       <ButtomBlock>
+        <button id="Del" onClick={noteDone}>刪除</button>
         <button id="OK" onClick={noteDone}>完成</button>
-        <button id="Del" onClick={noteDel}>刪除</button>
+        <button id="Del" onClick={noteChoose}>選擇</button>
       </ButtomBlock>
     </ItemWrap>
   );

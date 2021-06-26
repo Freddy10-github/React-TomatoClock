@@ -10,13 +10,13 @@ const ListWrap = styled.div`
   overflow-y: auto;
 `
 
-const List = ({ Listdata, delWork}) => {
+const List = ({ Listdata, delWork, setCurrentTask}) => {
   return (
     <ListWrap>
       {     
       Listdata.map(item => {
         const { id, note, } =item
-        return <Item key={ id } id={ id } note ={note} delWork={delWork}/>
+        return <Item key={ id } id={ id } note ={note} delWork={delWork} setCurrentTask={setCurrentTask}/>
       })}
       
     </ListWrap>
