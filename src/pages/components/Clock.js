@@ -11,6 +11,10 @@ const ClockWarp = styled.div`
   background-color: #9F0050; 
   padding: 50px 15%;
   box-sizing: border-box;
+  @media screen and (max-width: 800px) {
+    height: 45vh;
+    width: 100vw;
+}
   
   & .choose{
     /* display: none; */

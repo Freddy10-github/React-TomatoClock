@@ -3,11 +3,15 @@ import styled from '@emotion/styled'
 import Item from './Item';
 
 const ListWrap = styled.div`
-  margin:10px 1em;
+  margin:1vh 2em;
   background-color: #ddd;
   height: 45%;
   overflow-x:hidden;
   overflow-y: auto;
+  @media screen and (max-width: 700px) {
+    height: 35%;
+    
+}
 `
 
 const List = ({ Listdata, delWork, setCurrentTask}) => {

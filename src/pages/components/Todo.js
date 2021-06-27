@@ -12,24 +12,17 @@ const TodoWarp = styled.div`
   height: 100vh;
   width: 40%;
   background-color: #272727;
+  @media screen and (max-width: 800px) {
+    height: 55vh;
+    width: 100vw;    
+  }
 `
 const Profile =styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin:auto;
-
-  & .item{
-    width: 20%;
-    cursor: pointer;
-    position: relative;
-    
-    
-    & img{
-      width: 100%;
-
-    }
-  }
+  font-size: 10vw;
 
 `
 const Todo = ({setCurrentTask,setComment}) => {
@@ -47,13 +40,13 @@ const Todo = ({setCurrentTask,setComment}) => {
       <List Listdata={ work } delWork={ setWork } setCurrentTask={setCurrentTask}></List> 
       <Profile>
         <div className='item'>
-          <div className='next'><a href="https://freddy10-github.github.io/"  target="_blank" ><FontAwesomeIcon icon={fab.faBlogger} size='6x' color='#777'/></a></div>          
+          <div className='next'><a href="https://freddy10-github.github.io/"  target="_blank" ><FontAwesomeIcon icon={fab.faBlogger}  color='#777'/></a></div>          
         </div>
         <div className='item'>
-          <div className='next'><a href="https://github.com/Freddy10-github"  target="_blank" ><FontAwesomeIcon icon={fab.faGithub} size='6x' color='#777'/></a></div>          
+          <div className='next'><a href="https://github.com/Freddy10-github"  target="_blank" ><FontAwesomeIcon icon={fab.faGithub}  color='#777'/></a></div>          
         </div>
         <div className='item'>
-          <div className='next'><a href="https://www.linkedin.com/in/freddy-lo/"  target="_blank" ><FontAwesomeIcon icon={fab.faLinkedin} size='6x' color='#777'/></a></div>          
+          <div className='next'><a href="https://www.linkedin.com/in/freddy-lo/"  target="_blank" ><FontAwesomeIcon icon={fab.faLinkedin}  color='#777'/></a></div>          
         </div>
       </Profile>
     </TodoWarp>

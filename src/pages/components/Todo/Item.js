@@ -6,11 +6,18 @@ const ItemWrap = styled.div`
   border: 1px dotted #333;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 20px;
   padding: 2px 5px;
   & p{
     overflow-x:hidden;
     width: 80%;
+  }
+  & input{
+    margin: .2em 1em;
+    &:checked  + label{
+      display: none;
+    }
   }
 `
 const ButtomBlock=styled.div`
@@ -49,9 +56,10 @@ const Item = ({ id,note,delWork,setCurrentTask}) => {
     setCurrentTask(note)
   }
   return (
-    <ItemWrap>
+    <ItemWrap><input type="checkbox"/>
       <p>{note}</p>
-      <ButtomBlock>
+      <label htmlFor="input" id={id}></label>
+      <ButtomBlock className='Btn'>
         <button id="OK" onClick={noteDone}>刪除</button>
         <button id="Del" onClick={noteChoose}>選擇</button>
       </ButtomBlock>

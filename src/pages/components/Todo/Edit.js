@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { v4  } from 'uuid';
 
 
+
 const EditWrap = styled.div`
-  padding:40px 0px;
-  width: 100%;
+  padding:20px 0px;
+  width: 88%;
   text-align: center;
   position: relative;
+  margin: auto;
   & input{
     width: 80%;
     font-size: x-large;
@@ -18,6 +20,10 @@ const EditWrap = styled.div`
     &:focus{
       outline: none;
     }
+    @media screen and (max-width: 700px) {
+    width: 60%;    
+    
+}
   }
   & button{
     width: 50px;
@@ -33,7 +39,7 @@ const EditWrap = styled.div`
   
 `
 
-const Edit = ({ setWork, setEven }) => {
+const Edit = ({ setWork }) => {
   const [note,setNote] = useState("")
   const noteChange = (e) =>{
     setNote(e.target.value)
@@ -48,7 +54,7 @@ const Edit = ({ setWork, setEven }) => {
   }
   return (
     <EditWrap>
-      <input type="text" value={ note } onChange={ noteChange }/>
+      <input type="text" value={ note } onChange={ noteChange } placeholder='Give me a task'/>
       <button onClick={ addWork }>Add</button>
     </EditWrap>
   );
