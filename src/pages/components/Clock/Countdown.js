@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */  
 import styled from '@emotion/styled'
 import { useState, useEffect, useRef,  } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 const TimeCount = styled.div`
   width: 100%;
@@ -12,6 +14,7 @@ const TimeCount = styled.div`
   font-size: xx-large;
   overflow: hidden;
   height:4em;
+  margin:5em auto;
   & p{
     height: 2em;
     display: block;
@@ -23,18 +26,16 @@ const Btn = styled.div`
   height: 2em;  
   display: flex;
   border-top: 1px solid #ddd;
-  & button{
-    width: 80%;
-    height: 100%;
-    padding: 20px 0;
-    background-color: #9F0050;
-    border: none;
-    color: #ddd;
-    font-weight: bolder;  
-      
+  justify-content: space-around;
+  & .icon{
+    width: 100%;
+    height: 70%;
+    border: 1px solid #ddd;
+    padding: .3em 0;
   }
-  & button:hover{
-      background-color:	#820041;
+  
+  & .icon:hover{
+      
       cursor: pointer;
     }
 `
@@ -42,51 +43,54 @@ const Btn = styled.div`
 const Countdown = () => {
   const [countdown,setCountdown] = useState('25 : 00')
   const [timeStatus,setTimeStatus] = useState('開始')
-  const isTimeGoing = useRef(false)
-
-  function startCount (){
-    console.log(123);
-    isTimeGoing.current=!isTimeGoing.current
-    console.log(isTimeGoing.current);
-    setTimeStatus(()=>(isTimeGoing.current = true ? '暫停':'開始'))
-    // const  timeID = setInterval(() => {
-    //   updatetime(timeID);
-    //   }, 1000);   
-  } 
-  
-  let timeCount = 25;
-  let time = timeCount*60;
+  const [time, setTime] = useState()
+  const isTimerGoing = useRef(false)
+  let interval =useRef()
   
   
-  const updatetime = (timeID) =>{
-    let min = Math.floor(time/60);
-    let sec = time % 60 ;
-    sec = sec < 10 ? '0'+sec:sec;
-    setCountdown(`${min} : ${sec}`)
-    time -- ;  
-    if(time<0)
-      clearInterval(timeID) 
+  let workTime=0.5*60
+  const startTimer = () =>{
+    interval = setInterval(()=>{
+      let realTime = new Date().getTime()
+      let leastTime = workTime-(Math.round((realTime-time)/1000))
+      let min = Math.floor(leastTime/60)
+      let sec = leastTime % 60
+      sec = sec < 10 ? '0' + sec : sec
+      setCountdown(`${min} : ${sec}`)
+      if(leastTime<0)
+        clearInterval(interval.current)
+    },1000)
   }
+  
+  
   useEffect(()=>{
-    if(!isTimeGoing.current)
+    if(!isTimerGoing.current)
       return
-    const  timeID = setInterval(() => {
-      updatetime(timeID);
-      }, 1000);
-    
-  },[timeStatus])
-  
-  
-
+    startTimer()
+    return ()=>{
+      clearInterval(interval.current)
+    }
+  })
+  const startCount = () =>{
+    setTime(new Date().getTime())
+    isTimerGoing.current = isTimerGoing.current === false ? true : false
+    console.log(isTimerGoing.current);
+    setTimeStatus(()=>{
+      return isTimerGoing.current = true ? '開始' : '暫停'
+    })
+    if (!isTimerGoing.current) {
+      clearInterval(interval.current)
+    }
+  }
   return (
-    
     <TimeCount><p>{countdown}</p>
       <Btn>
-      
-        <button onClick = {startCount}>{timeStatus}</button>
-        <button >完成</button>
+        <FontAwesomeIcon className='icon' icon={fas.faRedo}/>
+        <FontAwesomeIcon className='icon' icon={fas.faPlay}/>
+        <FontAwesomeIcon className='icon' icon={fas.faStepForward}/>
       </Btn>
     </TimeCount>
+
   );
 };
 

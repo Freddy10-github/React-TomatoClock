@@ -1,7 +1,9 @@
 /** @jsxImportSource @emotion/react */  
 import styled from '@emotion/styled'
 import Countdown from './Clock/Countdown';
-import Comment from './Clock/Comment';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { fas } from '@fortawesome/free-solid-svg-icons'
+// import Comment from './Clock/Comment';
 
 const ClockWarp = styled.div`
   height: 100vh;
@@ -26,24 +28,17 @@ const  CurrentTodo = styled.h1`
   background-color: #ddd;
   padding:10px 0px 15px ;
   border-radius:30px;
-
   box-sizing: border-box;
-  &:hover{
-    cursor: pointer;
-  }
-
-
 `
 
 const Clock = ({currentTask}) => {  
   return (
-    <ClockWarp>
-      
+    <ClockWarp>      
         <CurrentTodo >{currentTask}</CurrentTodo>
         <Countdown></Countdown>
-        <Comment> </Comment>
     </ClockWarp>
   );
 };
 
 export default Clock;
+{/* <FontAwesomeIcon className='icon' icon={fas.faCheckCircle}/> */}

@@ -52,12 +52,10 @@ const Item = ({ id,note,delWork,setCurrentTask}) => {
     <ItemWrap>
       <p>{note}</p>
       <ButtomBlock>
-        <button id="Del" onClick={noteDone}>刪除</button>
-        <button id="OK" onClick={noteDone}>完成</button>
+        <button id="OK" onClick={noteDone}>刪除</button>
         <button id="Del" onClick={noteChoose}>選擇</button>
       </ButtomBlock>
     </ItemWrap>
   );
 };
-
-export default Item;
+export default Item;  

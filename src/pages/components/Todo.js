@@ -2,6 +2,10 @@
 import styled from '@emotion/styled'
 import Edit from './Todo/Edit';
 import List from './Todo/List'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { useState, useEffect, useCallback} from 'react';
 
 const TodoWarp = styled.div`
@@ -43,13 +47,13 @@ const Todo = ({setCurrentTask,setComment}) => {
       <List Listdata={ work } delWork={ setWork } setCurrentTask={setCurrentTask}></List> 
       <Profile>
         <div className='item'>
-          <div className='next'><a href="https://freddy10-github.github.io/"><img src="https://freddy10-github.github.io/images/F49D4857-4EDB-49C0-89A0-27F791BE7DE4.png" alt="" /></a></div>          
+          <div className='next'><a href="https://freddy10-github.github.io/"  target="_blank" ><FontAwesomeIcon icon={fab.faBlogger} size='6x' color='#777'/></a></div>          
         </div>
         <div className='item'>
-          <div className='next'><a href="https://github.com/Freddy10-github"><img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png" alt="" /></a></div>          
+          <div className='next'><a href="https://github.com/Freddy10-github"  target="_blank" ><FontAwesomeIcon icon={fab.faGithub} size='6x' color='#777'/></a></div>          
         </div>
         <div className='item'>
-          <div className='next'><a href="https://www.linkedin.com/in/freddy-lo/"><img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png" alt="" /></a></div>          
+          <div className='next'><a href="https://www.linkedin.com/in/freddy-lo/"  target="_blank" ><FontAwesomeIcon icon={fab.faLinkedin} size='6x' color='#777'/></a></div>          
         </div>
       </Profile>
     </TodoWarp>
