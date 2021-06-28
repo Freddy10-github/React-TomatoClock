@@ -14,7 +14,7 @@ const ClockWarp = styled.div`
   @media screen and (max-width: 800px) {
     height: 45vh;
     width: 100vw;
-}
+  }
   
   & .choose{
     /* display: none; */
@@ -45,4 +45,3 @@ const Clock = ({currentTask}) => {
 };
 
 export default Clock;
-{/* <FontAwesomeIcon className='icon' icon={fas.faCheckCircle}/> */}

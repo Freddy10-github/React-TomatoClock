@@ -67,13 +67,14 @@ const Countdown = () => {
       
       let realTime = new Date().getTime()
       leastTime.current=workTime-(Math.round((realTime-time)/1000))
-      console.log(typeof(leastTime.current));
       let min = Math.floor(leastTime.current/60)
       let sec = leastTime.current % 60
       sec = sec < 10 ? '0' + sec : sec
       setCountdown(`${min} : ${sec}`)
       if(leastTime.current<1){        
-        clearInterval(interval)}
+        clearInterval(interval)
+        workChange()
+      }
     },1000)
   }
   
@@ -100,7 +101,8 @@ const Countdown = () => {
     init()
   }
   const workChange = () =>{
-    timer.current = timer.current = 25 ? 5 : 25
+    if(timer.current === 25) timer.current = 5
+      else timer.current = 25
     init()
   }
   return (

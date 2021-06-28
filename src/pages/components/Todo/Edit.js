@@ -44,6 +44,8 @@ const Edit = ({ setWork }) => {
   const noteChange = (e) =>{
     setNote(e.target.value)
   }
+
+
   const addWork = (e) => {
     setWork(function(prevData){
       return [{

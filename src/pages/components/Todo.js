@@ -3,10 +3,10 @@ import styled from '@emotion/styled'
 import Edit from './Todo/Edit';
 import List from './Todo/List'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
+// import { fas } from '@fortawesome/free-solid-svg-icons'
+// import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { useState, useEffect, useCallback} from 'react';
+import { useState } from 'react';
 
 const TodoWarp = styled.div`
   height: 100vh;
@@ -25,29 +25,17 @@ const Profile =styled.div`
   font-size: 10vw;
 
 `
-const Todo = ({setCurrentTask,setComment}) => {
+const Todo = ({ setCurrentTask }) => {
   const [work, setWork]=useState([]);
-  
-  
-  useEffect(()=>{
-    setComment(work)
-  },[work])
-  
   return (
     <TodoWarp>
       <Edit setWork={ setWork }></Edit>
-      {/* <List Listdata={ work } delWork={ setWork }></List> */}
-      <List Listdata={ work } delWork={ setWork } setCurrentTask={setCurrentTask}></List> 
+      <List Listdata={ work } delWork={ setWork } setCurrentTask={ setCurrentTask }></List> 
       <Profile>
-        <div className='item'>
-          <div className='next'><a href="https://freddy10-github.github.io/"  target="_blank" ><FontAwesomeIcon icon={fab.faBlogger}  color='#777'/></a></div>          
-        </div>
-        <div className='item'>
-          <div className='next'><a href="https://github.com/Freddy10-github"  target="_blank" ><FontAwesomeIcon icon={fab.faGithub}  color='#777'/></a></div>          
-        </div>
-        <div className='item'>
-          <div className='next'><a href="https://www.linkedin.com/in/freddy-lo/"  target="_blank" ><FontAwesomeIcon icon={fab.faLinkedin}  color='#777'/></a></div>          
-        </div>
+        {/* https://pjchender.blogspot.com/2020/05/relnoreferrer-targetblank.html */}
+        <a href="https://freddy10-github.github.io/"  target="_blank" rel="noreferrer"><FontAwesomeIcon icon={fab.faBlogger}  color='#777'/></a>    
+        <a href="https://github.com/Freddy10-github"  target="_blank" rel="noreferrer"><FontAwesomeIcon icon={fab.faGithub}  color='#777'/></a>         
+        <a href="https://www.linkedin.com/in/freddy-lo/"  target="_blank" rel="noreferrer"><FontAwesomeIcon icon={fab.faLinkedin}  color='#777'/></a>        
       </Profile>
     </TodoWarp>
   );

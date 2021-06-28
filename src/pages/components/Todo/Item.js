@@ -52,7 +52,6 @@ const Item = ({ id,note,delWork,setCurrentTask}) => {
     })
   }
   const noteChoose=()=>{
-    console.log(note);
     setCurrentTask(note)
   }
   return (
