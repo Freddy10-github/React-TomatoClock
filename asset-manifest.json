@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React-TomatoClock/static/css/main.8b29a528.chunk.css",
+    "main.js": "/React-TomatoClock/static/js/main.1d386f7c.chunk.js",
+    "main.js.map": "/React-TomatoClock/static/js/main.1d386f7c.chunk.js.map",
+    "runtime-main.js": "/React-TomatoClock/static/js/runtime-main.6e0819ad.js",
+    "runtime-main.js.map": "/React-TomatoClock/static/js/runtime-main.6e0819ad.js.map",
+    "static/js/2.75da4ccf.chunk.js": "/React-TomatoClock/static/js/2.75da4ccf.chunk.js",
+    "static/js/2.75da4ccf.chunk.js.map": "/React-TomatoClock/static/js/2.75da4ccf.chunk.js.map",
+    "static/js/3.69732032.chunk.js": "/React-TomatoClock/static/js/3.69732032.chunk.js",
+    "static/js/3.69732032.chunk.js.map": "/React-TomatoClock/static/js/3.69732032.chunk.js.map",
+    "index.html": "/React-TomatoClock/index.html",
+    "static/css/main.8b29a528.chunk.css.map": "/React-TomatoClock/static/css/main.8b29a528.chunk.css.map",
+    "static/js/2.75da4ccf.chunk.js.LICENSE.txt": "/React-TomatoClock/static/js/2.75da4ccf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6e0819ad.js",
+    "static/js/2.75da4ccf.chunk.js",
+    "static/css/main.8b29a528.chunk.css",
+    "static/js/main.1d386f7c.chunk.js"
+  ]
+}
