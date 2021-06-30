@@ -19,7 +19,7 @@ const List = ({ Listdata, delWork, setCurrentTask}) => {
     <ListWrap>
       {     
       Listdata.map(item => {
-        const { id, note, } =item
+        const { id, note} =item
         return <Item key={ id } id={ id } note ={note} delWork={delWork} setCurrentTask={setCurrentTask}/>
       })}
       

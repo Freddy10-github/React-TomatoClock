@@ -1,6 +1,9 @@
 /** @jsxImportSource @emotion/react */  
 import styled from '@emotion/styled'
 import React from 'react';
+import { useState } from 'react';
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ItemWrap = styled.div`
   border: 1px dotted #333;
@@ -14,10 +17,8 @@ const ItemWrap = styled.div`
     width: 80%;
   }
   & input{
-    margin: .2em 1em;
-    &:checked  + label{
-      display: none;
-    }
+    display: none;
+    
   }
 `
 const ButtomBlock=styled.div`
@@ -46,6 +47,13 @@ const ButtomBlock=styled.div`
 
 
 const Item = ({ id,note,delWork,setCurrentTask}) => {
+  const [checked, setShecked] =useState(far.faCircle)
+  const changeCheck = () =>{
+    if(checked===far.faCircle)
+      setShecked(far.faCheckCircle)
+    else
+      setShecked(far.faCircle)
+  }
   const noteDone=()=>{
     delWork(function(prev){
       return prev.filter(item=>item.id !== id)      
@@ -55,8 +63,8 @@ const Item = ({ id,note,delWork,setCurrentTask}) => {
     setCurrentTask(note)
   }
   return (
-    <ItemWrap><input type="checkbox"/>
-      <p>{note}</p>
+    <ItemWrap><label onClick={ changeCheck} htmlFor=""><input type="checkbox"/><FontAwesomeIcon className='icon' icon={checked}/></label>
+      <p className='context'>&ensp;{note}</p>
       <label htmlFor="input" id={id}></label>
       <ButtomBlock className='Btn'>
         <button id="OK" onClick={noteDone}>刪除</button>

@@ -54,10 +54,16 @@ const Edit = ({ setWork }) => {
     })
     setNote(e.target.value="")
   }
+  const handleKeyDown = (even) =>{
+    if(even.key === 'Enter'){
+      addWork(even)
+    }
+      
+  }
   return (
     <EditWrap>
-      <input type="text" value={ note } onChange={ noteChange } placeholder='Give me a task'/>
-      <button onClick={ addWork }>Add</button>
+      <input type="text" value={ note } onChange={ noteChange } onKeyDown={ handleKeyDown } placeholder='Give me a task' />
+      <button onClick={ addWork } >Add</button>
     </EditWrap>
   );
 };
