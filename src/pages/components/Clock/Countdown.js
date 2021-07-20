@@ -53,16 +53,17 @@ const Countdown = () => {
   const [workTime,setWorkTime] = useState(timer.current*60)
   const isTimerGoing = useRef(false)
   var interval
- 
 
-  function init (){
-    setCountdown(`${timer.current} : 00`)
+
+  function init (){                             //Timer 初始化
+    setCountdown(`${timer.current} : 00`)       
     setCountStart(fas.faPlay )
     isTimerGoing.current=false
     clearInterval(interval)
     setWorkTime(timer.current*60)
   }
-  const startTimer = () =>{
+
+  const startTimer = () =>{         //設定Timer
     interval = setInterval(()=>{
       
       let realTime = new Date().getTime()
@@ -72,31 +73,32 @@ const Countdown = () => {
       sec = sec < 10 ? '0' + sec : sec
       setCountdown(`${min} : ${sec}`)
       if(leastTime.current<1){        
-        clearInterval(interval)
+        clearInterval(interval)       //計時結束並切換
         workChange()
       }
     },1000)
   }
   
-  
-  useEffect(()=>{
-    if(!isTimerGoing.current)
+
+  useEffect(()=>{   //防止畫面重複渲染
+    if(!isTimerGoing.current)  
       return
     startTimer()
     return ()=>{
       clearInterval(interval)
     }
   },[countstart])
-  const workStart = () =>{
+
+  const workStart = () =>{    //
     setTime(new Date().getTime())
     if (isTimerGoing.current)
       {clearInterval(interval)
         setWorkTime(leastTime.current)}
     isTimerGoing.current = isTimerGoing.current === false ? true : false
-    setCountStart(isTimerGoing.current === false ? fas.faPlay : fas.faPause)
-    
-    
+    setCountStart(isTimerGoing.current === false ? fas.faPlay : fas.faPause)       
   }
+
+  
   const workReset = () =>{
     init()
   }
