@@ -52,6 +52,7 @@ const Edit = ({ setWork }) => {
         id:v4(),
         note, },...prevData]
     })
+    
     setNote(e.target.value="")
   }
   const handleKeyDown = (even) =>{
