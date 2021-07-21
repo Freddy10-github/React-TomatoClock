@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { fas } from '@fortawesome/free-solid-svg-icons'
 // import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const TodoWarp = styled.div`
   height: 100vh;
@@ -26,7 +26,12 @@ const Profile =styled.div`
 
 `
 const Todo = ({ setCurrentTask }) => {
-  const [work, setWork]=useState([]);
+  const [work, setWork]=useState(localStorage['myTodo']?JSON.parse(localStorage.getItem('myTodo')):[]);
+  
+  useEffect(()=>{
+    localStorage.setItem('myTodo',JSON.stringify(work))
+    console.log(localStorage)
+  },[work])
   return (
     <TodoWarp>
       <Edit setWork={ setWork }></Edit>
