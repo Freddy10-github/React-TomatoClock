@@ -26,7 +26,8 @@ const Profile =styled.div`
 
 `
 const Todo = ({ setCurrentTask }) => {
-  const [work, setWork]=useState(JSON.parse(localStorage.getItem('myTodo')||[]));
+  const [work, setWork]=useState(localStorage['myTodo']?JSON.parse(localStorage.getItem('myTodo')):[]);
+  
   useEffect(()=>{
     localStorage.setItem('myTodo',JSON.stringify(work))
     console.log(localStorage)
