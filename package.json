@@ -1,6 +1,6 @@
 {
   "name": "tomato-clock",
-  "homepage": "https://freddy10-github.github.io/React-TomatoClock/",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
